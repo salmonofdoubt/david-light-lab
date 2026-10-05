@@ -9,4 +9,5 @@ version: 0.1.0
 date-released: 2026-10-05
 url: "https://salmonofdoubt.github.io/demos/david-light-lab/"
 repository-code: "https://github.com/salmonofdoubt/david-light-lab"
+doi: "10.5281/zenodo.23172580"
 license: MIT
