@@ -77,11 +77,11 @@ The Playwright visual test covers desktop and mobile loading/rendering, the mobi
 
 ## Citation / DOI
 
-The first Zenodo release is being prepared. Until the record is minted, the UI intentionally carries the placeholder DOI:
+Zenodo DOI for the v0.1.0 software release:
 
-`10.5281/zenodo.0000000`
+`10.5281/zenodo.23172580`
 
-After Zenodo assigns the release DOI, update `site-config.js`, `CITATION.cff` and this README.
+Record: https://zenodo.org/records/23172580
 
 ## Release
 
