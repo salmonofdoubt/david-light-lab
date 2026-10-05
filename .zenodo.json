@@ -1,0 +1,23 @@
+{
+  "title": "David Light Lab",
+  "description": "Interactive 3D reference for drawing, painting, composition, form and value studies using a derivative of the Scan the World / Jonathan Beck David model from Wikimedia Commons. Software code is MIT licensed; the bundled derivative 3D asset remains CC BY-SA 4.0.",
+  "creators": [
+    {
+      "name": "Baumann, André"
+    }
+  ],
+  "license": "MIT",
+  "keywords": [
+    "art",
+    "drawing",
+    "painting",
+    "3D",
+    "Michelangelo",
+    "lighting",
+    "value study",
+    "education",
+    "interactive"
+  ],
+  "upload_type": "software",
+  "access_right": "open"
+}
