@@ -1,0 +1,12 @@
+cff-version: 1.2.0
+message: "If you use David Light Lab, please cite the software and acknowledge the Scan the World / Jonathan Beck source model."
+title: "David Light Lab"
+type: software
+authors:
+  - family-names: Baumann
+    given-names: André
+version: 0.1.0
+date-released: 2026-10-05
+url: "https://salmonofdoubt.github.io/demos/david-light-lab/"
+repository-code: "https://github.com/salmonofdoubt/david-light-lab"
+license: MIT
