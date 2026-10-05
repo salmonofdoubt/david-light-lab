@@ -1,0 +1,52 @@
+name: David Light Lab visual test
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/visual-test.yml'
+  pull_request:
+    paths:
+      - '**'
+      - '.github/workflows/visual-test.yml'
+  workflow_dispatch:
+
+concurrency:
+  group: david-light-lab-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  visual-test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install browser test dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install playwright pillow
+          python -m playwright install --with-deps chromium
+
+      - name: Start local site with CDN-like compressed mesh
+        run: |
+          python tests/server.py > /tmp/david-http.log 2>&1 &
+          echo $! > /tmp/david-http.pid
+          sleep 2
+
+      - name: Run desktop and mobile render tests
+        run: python tests/visual_test.py
+
+      - name: Upload visual evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: david-light-lab-visual-test
+          path: |
+            tests/output/*.png
+            tests/output/report.txt
+          if-no-files-found: warn
