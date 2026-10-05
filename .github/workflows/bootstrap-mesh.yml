@@ -1,0 +1,34 @@
+name: Bootstrap David artist mesh
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/bootstrap-mesh.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  bootstrap:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Fetch tested mesh from source repository
+        run: |
+          mkdir -p assets
+          curl -fL --retry 3             "https://raw.githubusercontent.com/salmonofdoubt/salmonofdoubt.github.io/bb35bc2fb0d88d23de090e8ae10a5b94010bb0fe/demos/david-light-lab/assets/david-head.dlb"             -o assets/david-head.dlb
+          test "$(wc -c < assets/david-head.dlb | tr -d ' ')" = "10786176"
+          test "$(git hash-object assets/david-head.dlb)" = "b7ac2afa67f04d2f7c2821ed913bdd5a49f41e3f"
+
+      - name: Commit exact tested mesh
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/david-head.dlb
+          git diff --cached --quiet && exit 0
+          git commit -m "Restore tested David artist mesh"
+          git push origin HEAD:main
