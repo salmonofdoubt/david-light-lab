@@ -1,9 +1,9 @@
-const CACHE_NAME = 'david-light-lab-standalone-v1';
+const CACHE_NAME = 'david-light-lab-standalone-v2-doi';
 const SHELL = [
   './',
   './index.html',
   './styles.css?v=20261005-standalone1',
-  './site-config.js?v=20261005-standalone1',
+  './site-config.js?v=20261005-doi1',
   './app.js?v=20261005-standalone1',
   './stl-worker.js?v=20261005-1640',
   './manifest.webmanifest',
